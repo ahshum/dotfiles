@@ -6,35 +6,32 @@ endif
 call plug#begin()
 
 " Core
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/netrw.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
 
-" Plug 'tpope/vim-fugitive'
+" Comment
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
 
-" Tree
+" Explorer
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/netrw.vim'
+Plug 'mhinz/vim-grepper'
 
 " Git
 Plug 'airblade/vim-gitgutter'
-
-" Search
-Plug 'henrik/vim-indexed-search'
+Plug 'tpope/vim-fugitive'
 
 " Selection
-Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
-Plug 'wellle/targets.vim'
+" Plug 'wellle/targets.vim'
 
 " Alignment
 Plug 'godlygeek/tabular'
@@ -45,17 +42,23 @@ Plug 'editorconfig/editorconfig-vim'
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
 
+" Completion
+" Plug 'Valloric/YouCompleteMe'
+
+" Snippet
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Lang
 Plug 'toml-lang/toml'
-Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'leafgarland/typescript-vim'
+
+" Icon
+Plug 'ryanoasis/vim-devicons'
 
 " Theme
 Plug 'flazz/vim-colorschemes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'chriskempson/base16-vim'
-Plug 'nightsense/vimspectr'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -66,25 +69,28 @@ set formatoptions-=cro
 set background=light
 set t_Co=256
 syntax on
-set paste
 set pastetoggle=<F2>
 set encoding=UTF-8
 set t_md=
 colorscheme onedark
 set nowrap
+filetype plugin indent on
+set hlsearch
+set cursorline 
 
 map <C-\> :NERDTreeToggle<CR>
+map <C-p> :FZF<CR>
 
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files = 0
+" -------------------------------------------------------------------------
+" Settings
+" -------------------------------------------------------------------------
 
 let g:multi_cursor_use_default_mapping = 1
 let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_visual_mode = 0
 
 let g:airline_powerline_fonts = 1
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-let g:jellybeans_use_lowcolor_black = 1
