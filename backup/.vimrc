@@ -44,6 +44,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 " Completion
 " Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
 
 " Snippet
 Plug 'SirVer/ultisnips'
