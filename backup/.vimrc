@@ -36,6 +36,9 @@ Plug 'easymotion/vim-easymotion'
 " Alignment
 Plug 'godlygeek/tabular'
 
+" Convert
+Plug 'tpope/vim-abolish'
+
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 
@@ -95,3 +98,9 @@ let g:airline_powerline_fonts = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+" -------------------------------------------------------------------------
+" Functions
+" -------------------------------------------------------------------------
+
+command! -bang -nargs=+ -complete=dir AgIn call fzf#vim#ag_raw(<q-args>, <bang>0)
