@@ -46,8 +46,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Completion
-" Plug 'Valloric/YouCompleteMe'
-Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe'
 
 " Snippet
 Plug 'SirVer/ultisnips'
@@ -98,6 +97,8 @@ let g:airline_powerline_fonts = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+let g:ycm_server_python_interpreter = 'ycmd-python'
 
 " -------------------------------------------------------------------------
 " Functions
