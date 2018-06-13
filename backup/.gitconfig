@@ -3,3 +3,4 @@
 	name = Ah Shum
 [core]
 	editor = vim
+	pager = cat
