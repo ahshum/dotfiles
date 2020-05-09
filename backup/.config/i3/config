@@ -162,9 +162,9 @@ exec --no-startup-id dropbox start -i
 exec --no-startup-id fcitx
 
 # Hotkeys
-bindsym Mod1+F1 exec amixer -q set Master 2%+ unmute
-bindsym Mod1+F2 exec amixer -q set Master 2%- unmute
-bindsym Mod1+F3 exec amixer -q set Master toggle
+bindsym Mod1+F1 exec pactl set-sink-volume 0 +2%
+bindsym Mod1+F2 exec pactl set-sink-volume 0 -2%
+bindsym Mod1+F3 exec pactl set-sink-mute 0 toggle
 
 bindsym $mod+Shift+a focus child
 bindsym $mod+Tab workspace next
@@ -179,4 +179,5 @@ bindsym $mod+Shift+Tab workspace prev
 focus_follows_mouse no
 hide_edge_borders smart
 new_window pixel 3
+workspace_layout tabbed
 
