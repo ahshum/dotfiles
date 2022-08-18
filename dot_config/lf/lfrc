@@ -1,4 +1,4 @@
-map a rename
-
 cmd open-with $"$@" "$fx"
-map r push :open-with<space>
+map o push :open-with<space>
+
+map D delete
