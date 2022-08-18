@@ -1,0 +1,4 @@
+map a rename
+
+cmd open-with $"$@" "$fx"
+map r push :open-with<space>
