@@ -1,0 +1,603 @@
+{
+  "title": "# Sam Hyper",
+  "rules": [
+    {
+      "description": "CapsLock to Hyper",
+      "manipulators": [
+        {
+          "description": "capslock = esc(click) | hyper(hold)",
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": [
+                "right_command",
+                "right_control",
+                "right_option"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        },
+        {
+          "description": "escape = capslock switch",
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ],
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper Mouse",
+      "manipulators": [
+        {
+          "description": "option + h = mouse left",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + control + h = mouse wheel left",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": 64
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + j = mouse down",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + control + j = mouse wheel down",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": 64
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + k = mouse up",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + control + k = mouse wheel up",
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "vertical_wheel": -64
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + l = mouse move right",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": 1600
+              }
+            }
+          ]
+        },
+        {
+          "description": "shift + control + l = mouse wheel right",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "horizontal_wheel": -64
+              }
+            }
+          ]
+        },
+        {
+          "description": "option + u = mouse left click",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_shift",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ]
+        },
+        {
+          "description": "option + i = mouse right click",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_shift",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ]
+        },
+        {
+          "description": "option + o = mouse middle click",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_shift",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3"
+            }
+          ]
+        },
+        {
+          "description": "option + p = mouse forward",
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_shift",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button5"
+            }
+          ]
+        },
+        {
+          "description": "option + y = mouse backward",
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_shift",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper Navigation",
+      "manipulators": [
+        {
+          "description": " h = left",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "description": " j = down",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "description": " k = up",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "description": " l = right",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        },
+        {
+          "description": " u = page_up",
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up"
+            }
+          ]
+        },
+        {
+          "description": " i = home",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "home"
+            }
+          ]
+        },
+        {
+          "description": " o = end",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "end"
+            }
+          ]
+        },
+        {
+          "description": " p = page_down",
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ],
+              "optional": [
+                "left_command",
+                "left_control",
+                "left_shift",
+                "left_option",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
