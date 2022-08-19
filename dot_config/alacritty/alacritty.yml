@@ -1,0 +1,34 @@
+font:
+{{- if eq .chezmoi.os "darwin" }}
+  size: 10.0
+{{- else if eq .chezmoi.os "linux" }}
+  size: 7.0
+{{- end }}
+
+hints:
+  enabled:
+    - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+              [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: xdg-open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Control
+      binding:
+        key: U
+        mods: Control|Shift
+
+key_bindings:
+{{- if eq .chezmoi.os "darwin" }}
+  - { key: Key1, mods: Command, chars: "\x1b1"}
+  - { key: Key2, mods: Command, chars: "\x1b2"}
+  - { key: Key3, mods: Command, chars: "\x1b3"}
+  - { key: Key4, mods: Command, chars: "\x1b4"}
+  - { key: Key5, mods: Command, chars: "\x1b5"}
+  - { key: Key6, mods: Command, chars: "\x1b6"}
+  - { key: Key7, mods: Command, chars: "\x1b7"}
+  - { key: Key8, mods: Command, chars: "\x1b8"}
+  - { key: Key9, mods: Command, chars: "\x1b9"}
+  - { key: R, mods: Command, chars: "\x1br"}
+  - { key: L, mods: Command, chars: "\x1bl"}
+{{- end }}
