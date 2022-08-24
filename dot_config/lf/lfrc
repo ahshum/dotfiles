@@ -2,3 +2,13 @@ cmd open-with $"$@" "$fx"
 map o push :open-with<space>
 
 map D delete
+
+map y
+map yy copy
+
+cmd yank-path &printf '%s' "$fx" | $COPYER
+cmd yank-dir &printf '%s' "`dirname "$fx"`" | $COPYER
+cmd yank-name &printf '%s' "`basename "$fx"`" | $COPYER
+map yp yank-path
+map yd yank-dir
+map yn yank-name
