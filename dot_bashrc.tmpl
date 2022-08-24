@@ -1,0 +1,18 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+. ~/.profile
+{{- if eq .chezmoi.os "darwin" }}
+. /opt/homebrew/etc/bash_completion
+{{- end }}
+
+alias ls='ls --color=auto'
+{{- if eq .chezmoi.os "linux" }}
+PS1='[\u@\h \W]\$ '
+{{- else if eq .chezmoi.os "darwin" }}
+PS1='[\u \W]\$ '
+{{- end }}
