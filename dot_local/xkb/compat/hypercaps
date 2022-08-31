@@ -1,0 +1,6 @@
+default partial xkb_compatibility "hypercaps" {
+    interpret Caps_Lock+AnyOfOrNone(all) {
+        action= SetMods(modifiers=Lock);
+    };
+};
+
