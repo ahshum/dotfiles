@@ -6,9 +6,16 @@ map D delete
 map y
 map yy copy
 
-cmd yank-path &printf '%s' "$fx" | $COPYER
-cmd yank-dir &printf '%s' "`dirname "$fx"`" | $COPYER
-cmd yank-name &printf '%s' "`basename "$fx"`" | $COPYER
+cmd yank-path &tmux set-buffer -w "$fx"
+cmd yank-dir &tmux set-buffer -w `dirname "$fx"`
+cmd yank-name &tmux set-buffer -w `basename "$fx"`
 map yp yank-path
 map yd yank-dir
 map yn yank-name
+
+cmd yank-mnt &{{
+  base=$(findmnt -T . | sed -n '2{p;q}' | awk '{ print $1 }')
+  rel=$(echo "$fx" | sed "s:$base::" | sed "s:^/::")
+  tmux set-buffer -w "$rel"
+}}
+map ym yank-mnt
