@@ -2,3 +2,8 @@
   type = "git-repo"
   url = "https://github.com/tmux-plugins/tpm"
   refreshPeriod = "168h"
+
+[".config/alacritty/themes"]
+  type = "git-repo"
+  url = "https://github.com/alacritty/alacritty-theme"
+  refreshPeriod = "168h"
