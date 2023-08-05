@@ -1,13 +1,5 @@
 export EDITOR=vim
 export PAGER=less
 export LESS=R
-{{- if eq .chezmoi.os "linux" }}
 export COPYER="xclip -i -sel c"
 export PASTER="xclip -o -sel c"
-{{- else if eq .chezmoi.os "darwin" }}
-export COPYER="pbcopy"
-export PASTER="pbpaste"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export HOMEBREW_CASK_OPTS="--no-quarantine"
-export HOMEBREW_NO_AUTO_UPDATE=1
-{{- end }}
