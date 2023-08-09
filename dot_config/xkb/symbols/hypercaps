@@ -1,4 +1,5 @@
-default partial xkb_symbols "hypercaps" {
+default partial modifier_keys
+xkb_symbols "hypercaps" {
     // Arrow keys
     key <AC06> {
         type= "HYPERCAPS",
