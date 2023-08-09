@@ -9,7 +9,7 @@ map yy copy
 cmd yank-path &$COPYER "$fx"
 cmd yank-dir &$COPYER "`dirname "$fx"`"
 cmd yank-name &$COPYER "`basename "$fx"`"
-cmd yank-mnt %{{
+cmd yank-mnt &{{
   base=$(findmnt -T . | sed -n '2{p;q}' | awk '{ print $1 }')
   src=$(findmnt -T . | sed -n '2{p;q}' | awk '{ print $2 }')
   rel=$(echo "$fx" | sed "s:$base::" | sed "s:^/::")
