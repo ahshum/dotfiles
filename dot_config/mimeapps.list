@@ -1,0 +1,14 @@
+[Added Associations]
+
+[Removed Associations]
+
+[Default Applications]
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+application/pdf=mupdf.desktop
+image/png=imv.desktop
+image/jpeg=imv.desktop
+video/x-matroska=mpv.desktop

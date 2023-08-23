@@ -1,0 +1,4 @@
+default-timeout=6000
+
+[mode=sleep]
+invisible=1

@@ -1,7 +1,12 @@
 cmd open-with $"$@" "$fx"
 map o push :open-with<space>
 
-map D delete
+map f push :setfilter<space>
+map zr $lf -remote "send $id source ~/.config/lf/lfrc"
+
+map d
+map dd cut
+map dD delete
 
 map y
 map yy copy
@@ -19,3 +24,20 @@ map yp yank-path
 map yd yank-dir
 map yn yank-name
 map ym yank-mnt
+
+map p
+map pp paste
+
+cmd paste-link &{{
+  flags="$1"
+  set -- $(cat ~/.local/share/lf/files)
+  mode="$1"
+  shift
+  case "$mode" in
+    copy) ln -sf $flags -t . -- "$@";;
+    move) ln -t . -- "$@";;
+  esac
+  lf -remote "send clear"
+}}
+map pl paste-link -r
+map pL paste-link
