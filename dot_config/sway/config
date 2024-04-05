@@ -22,6 +22,8 @@ set $term alacritty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu tofi-run | xargs swaymsg exec --
 
+exec_always fcitx5
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -33,9 +35,21 @@ output * bg #2e2e2e solid_color
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 {
-    scale 1.25
+set $out0 eDP-1
+output $out0 {
+    res --custom 1804x1203
+    pos 0 0
+    scale 1
 }
+workspace 1 output $out0
+workspace 2 output $out0
+workspace 3 output $out0
+workspace 4 output $out0
+workspace 5 output $out0
+workspace 6 output $out0
+workspace 7 output $out0
+workspace 8 output $out0
+workspace 9 output $out0
 
 ### Idle configuration
 #
@@ -68,6 +82,7 @@ input type:touchpad {
     drag enabled
     middle_emulation enabled
     natural_scroll enabled
+    dwt disabled
 }
 input type:keyboard {
     repeat_delay 250
@@ -86,7 +101,6 @@ input type:keyboard {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
     bindsym $alt+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -197,6 +211,7 @@ input type:keyboard {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+Shift+a focus child
 #
 # Scratchpad:
 #
@@ -268,11 +283,16 @@ bar swaybar_command waybar
 #
 # Style:
 #
+    smart_borders on
+    smart_gaps on
     default_border none
     default_floating_border none
     gaps inner 2
-    font pango:monospace 0
-    titlebar_padding 2
+    font pango:monospace 1
+    titlebar_padding 1
     titlebar_border_thickness 0
+#
+# Config:
+#
 
 include /etc/sway/config.d/*
