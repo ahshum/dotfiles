@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+get_active() {
+  hyprctl activeworkspace -j | jq -c
+}
+
+get_active
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+  case "$line" in
+    "workspacev2>>"*)
+      get_active
+      ;;
+  esac
+done

@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+
+get_active() {
+  hyprctl activewindow -j
+}
+
+get_grouped_index() {
+  echo "$1" | jq -c '.address as $address | .grouped | index($address)'
+}
+
+is_grouped() {
+  [ `get_grouped_index "$1"` != "null" ] && echo true || echo false
+}
+
+is_grouped_leftmost() {
+  index=`get_grouped_index "$1"`
+  [ "$index" = "0" ] && echo true || echo false
+}
+
+is_grouped_rightmost() {
+  end=`echo "$1" | jq -c '.grouped | length - 1'`
+  index=`get_grouped_index "$1"`
+  echo "debug: rightmost, $index, $end" >&2
+  [ "$index" = "$end" ] && echo true || echo false
+}
+
+main() {
+  window=`get_active`
+  direction="$1"
+
+  if [ "$direction" = "l" ] && [ `is_grouped "$window"` = "true" ] && [ `is_grouped_leftmost "$window"` = "false" ]; then
+    hyprctl dispatch changegroupactive b
+  elif [ "$direction" = "r" ] && [ `is_grouped "$window"` = "true" ] && [ `is_grouped_rightmost "$window"` = "false" ]; then
+    hyprctl dispatch changegroupactive f
+  else
+    hyprctl dispatch movefocus "$direction"
+  fi
+}
+
+main "$@"

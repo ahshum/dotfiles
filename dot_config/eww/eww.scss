@@ -1,0 +1,90 @@
+* {
+  all: unset;
+}
+
+.debug {
+  border: 1px solid #fff;
+}
+
+.bar {
+  font-size: 0.8rem;
+  background-color: rgba(0, 0, 0, 1);
+  color: #ffffff;
+}
+
+.tray {
+  font-family: monospace;
+
+  .clock {
+    padding: 4px 8px;
+    background-color: #64727D;
+    
+    .clock-icon {
+      margin-right: 8px;
+    }
+  }
+
+  .battery {
+    padding: 4px 8px;
+    background-color: #129299;
+
+    .battery-icon {
+      margin-right: 4px;
+    }
+  }
+
+  .backlight {
+    padding: 4px 8px;
+    background-color: #d68317;
+    
+    .backlight-icon {
+      margin-right: 4px;
+    }
+  }
+
+  .audio-sink {
+    padding: 4px 8px;
+    background-color: #1c4a75;
+
+    .audio-icon {
+      margin-right: 4px;
+    }
+  }
+
+  .systray {
+    padding: 4px 8px;
+  }
+}
+
+.workspace {
+  font-family: monospace;
+
+  .workspace-item {
+    padding: 4px 8px;
+    background-color: #333333;
+  }
+  .workspace-item--active {
+    background-color: #aaaaaa;
+  }
+
+  .workspace-submap {
+    padding: 4px;
+    background-color: #d35f2a;
+  }
+
+  .workspace-special {
+    padding: 4px;
+    background-color: #5710b5;
+  }
+} 
+
+.window {
+  .window-title {
+    margin: 0 4px;
+  }
+  .window-state {
+    font-family: monospace;
+    padding: 4px 8px;
+    background-color: #18840b;
+  }
+}

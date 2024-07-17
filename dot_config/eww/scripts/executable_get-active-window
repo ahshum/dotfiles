@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+get_active() {
+  hyprctl activewindow -j | jq -c
+}
+
+get_active
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+  case "$line" in
+    "activewindow>>"*|"windowtitle>>"*|"fullscreen>>"*)
+      get_active
+      ;;
+  esac
+done

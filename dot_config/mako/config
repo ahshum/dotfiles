@@ -1,4 +1,5 @@
 default-timeout=6000
+output=eDP-1
 
 [mode=sleep]
 invisible=1

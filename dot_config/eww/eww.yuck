@@ -1,0 +1,153 @@
+
+; WM
+(deflisten active_workspace 
+  "scripts/get-active-workspace")
+
+(deflisten workspaces
+  "scripts/get-workspaces")
+
+(deflisten active_submap
+  "scripts/get-active-submap")
+
+(deflisten active_special
+  "scripts/get-active-special")
+
+(defwidget workspace []
+  (box
+    :class "workspace"
+    :space-evenly false
+    (box
+      :class "workspace-list"
+      :space-evenly false
+      (label 
+        :text "${active_workspace?.id}"
+        :visible false)
+      (for workspace in workspaces
+        (button
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (label
+            :class "workspace-item ${active_workspace?.id == workspace.id ? "workspace-item--active" : ""}"
+            :text "${workspace.name}"))))
+    (box
+      :class "workspace-submap"
+      :space-evenly false
+      :visible "${active_submap != ""}"
+      (label
+        :text "${active_submap}"))
+    (box
+      :class "workspace-special"
+      :space-evenly false
+      :visible "${active_special?.id != "null"}"
+      (label
+        :text "${replace(active_special.name, "^special:", "")}"))
+  ))
+
+; Window
+(deflisten active_window
+  "scripts/get-active-window")
+
+(defwidget window []
+  (box
+    :class "window"
+    :space-evenly false
+    (label
+      :class "window-state window-state--fullscreen"
+      :visible "${active_window.fullscreen ?: false}"
+      :text "F")
+    (label
+      :class "window-title"
+      :limit-width 120
+      :text "${active_window?.title ?: ""}")
+  ))
+
+; Tray
+(defpoll now
+  :interval "1s"
+  `date +"%Y-%m-%d %H:%M:%S"`)
+
+(deflisten backlight_level
+  "scripts/get-backlight-level")
+
+(deflisten audio_sink_volume
+  "scripts/get-audio-sink-volume")
+
+(defwidget tray []
+  (box
+    :class "tray"
+    :space-evenly false
+    (systray
+      :class "systray"
+      :icon-size 16
+      :spacing 8)
+    (box
+      :class "audio-sink"
+      :space-evenly false
+      (label
+        :class "audio-icon"
+        :text "")
+      (label
+        :text "${audio_sink_volume}%"))
+    (box
+      :class "backlight"
+      :space-evenly false
+      (label
+        :class "backlight-icon"
+        :text "󰌵")
+      (label
+        :text "${round(backlight_level, 0)}%"))
+    (box
+      :class "battery"
+      :space-evenly false
+      (label
+        :class "battery-icon"
+        :visible "${EWW_BATTERY.BAT1.status == "Charging"}"
+        :text "")
+      (label
+        :class "battery-icon"
+        :visible "${EWW_BATTERY.BAT1.status == "Discharging"}"
+        :text "󱊢")
+      (label
+        :class "battery-label"
+        :text "${EWW_BATTERY.BAT1.capacity}%"))
+    (box
+      :class "clock"
+      :space-evenly false
+      (label
+        :class "clock-icon"
+        :text "")
+      (label
+        :text now))
+  ))
+
+; Bar
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "100%"
+    :height "0%"
+    :anchor "top center")
+  (centerbox
+    :class "bar"
+    :hexpand true
+    :halign "fill"
+    (box 
+      :class "bar-left"
+      :halign "start" 
+      :space-evenly false
+      (workspace))
+    (box 
+      :class "bar-center"
+      :halign "center" 
+      :space-evenly false
+      (window))
+    (box
+      :class "bar-right"
+      :halign "end"
+      :space-evenly false
+      (tray))
+  ))
