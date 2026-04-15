@@ -1,0 +1,12 @@
+[Added Associations]
+application/pdf=firefox.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop;
+image/*=imv.desktop;
+video/*=mpv.desktop;
+text/*=vim.desktop;
+application/x-shellscript=vim.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/terminal=Alacritty.desktop;

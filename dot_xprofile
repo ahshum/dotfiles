@@ -1,0 +1,18 @@
+export GDK_SCALE=2
+#export GDK_DPI_SCALE=1.2
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_SCREEN_SCALE_FACTORS="2"
+export MOZ_USE_XINPUT2=1
+
+export COPYER="xclip -i -sel c"
+export PASTER="xclip -o -sel c"
+
+xrandr --output eDP-1 --scale 1.25x1.25
+
+xset r rate 250 50
+xset s off -dpms
+
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "PIXA3854:00 093A:0274 Touchpad" "libinput Accel Speed" 0.25

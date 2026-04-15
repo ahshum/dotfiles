@@ -1,0 +1,5 @@
+#!/bin/sh
+
+udevadm monitor -u -s backlight | while read -r line; do
+  light -G
+done

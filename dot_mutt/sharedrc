@@ -1,0 +1,46 @@
+set header_cache             = "~/.mutt/cache/headers"
+set message_cachedir         = "~/.mutt/cache/messages"
+set imap_check_subscribed    = yes
+set imap_keepalive           = 300
+set mail_check               = 120
+set sidebar_visible          = yes
+set sidebar_width            = 25
+set mailcap_path             = ~/.mutt/mailcap
+set mark_old                 = no
+
+set mbox_type    = maildir
+set spoolfile    = "+INBOX"
+set record       = "+Sent"
+set postponed    = "+Drafts"
+set trash        = "+Trash"
+set date_format  = "%Y-%m-%d %T"
+set index_format = "%2C %Z [%d] %-30.30F (%-4.4c) %s"
+mailboxes        +INBOX
+
+bind index,pager                 K          sidebar-prev
+bind index,pager                 J          sidebar-next
+bind index,pager                 L          sidebar-open
+bind index,pager                 B          sidebar-toggle-visible
+bind index                       q          quit
+bind pager,browser               h          exit
+bind attach,alias                h          exit
+bind index                       h          noop
+bind pager                       k          previous-line
+bind pager                       j          next-line
+bind index                       k          previous-entry
+bind index                       j          next-entry
+bind attach,index                g          first-entry
+bind attach,index                G          last-entry
+bind index                       l          display-message
+bind pager                       l          view-attachments
+bind attach                      l          view-attach
+bind browser,alias               l          select-entry
+bind index                       m          toggle-new
+bind index                       /          search
+bind index                       ?          limit
+bind index,pager,attach          \C_        help
+bind pager                       \\         display-toggle-weed
+bind attach,index,pager          \Cd        next-page
+bind attach,index,pager          \Cu        previous-page
+bind index,pager                 s          copy-message
+bind index,pager                 S          save-message

@@ -1,0 +1,2 @@
+set folder = ~/.mutt/mail/
+mailboxes +LOCAL

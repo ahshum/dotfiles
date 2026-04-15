@@ -1,0 +1,8 @@
+export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=vim
+export PAGER=less
+export LESS=R
+#export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export QT_IM_MODULES="wayland;fcitx"
+export XMODIFIERS=@im=fcitx

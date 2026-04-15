@@ -1,0 +1,8 @@
+[safe]
+	directory = *
+[core]
+	pager = less -RXF
+[protocol "file"]
+	allow = always
+[push]
+	default = upstream

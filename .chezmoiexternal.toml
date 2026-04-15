@@ -1,0 +1,15 @@
+[".config/tmux/plugins/tpm"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tpm"
+  refreshPeriod = "168h"
+
+[".config/alacritty/themes"]
+  type = "git-repo"
+  url = "https://github.com/alacritty/alacritty-theme"
+  refreshPeriod = "168h"
+
+[".mutt/tools/mutt_oauth2.py"]
+  type = "file"
+  url = "https://github.com/neomutt/neomutt/raw/refs/heads/main/contrib/oauth2/mutt_oauth2.py"
+  refreshPeriod = "168h"
+  executable = true

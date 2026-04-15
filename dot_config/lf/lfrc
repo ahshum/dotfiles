@@ -1,0 +1,56 @@
+cmd open-with $"$@" "$fx"
+map o push :open-with<space>
+
+map f push :setfilter<space>
+map zr $lf -remote "send $id source ~/.config/lf/lfrc"
+
+map d
+map dd cut
+map dD delete
+
+map y
+map yy copy
+
+cmd yank-path &$COPYER -- "$fx"
+cmd yank-dir &$COPYER -- "`dirname "$fx"`"
+cmd yank-name &$COPYER -- "`basename "$fx"`"
+cmd yank-mnt &{{
+  base=$(findmnt -T . | sed -n '2{p;q}' | awk '{ print $1 }')
+  src=$(findmnt -T . | sed -n '2{p;q}' | awk '{ print $2 }')
+  rel=$(echo "$fx" | sed "s:$base/::")
+  end="$(echo "$src" | awk '{print substr($0, length($0), 1)}')"
+
+  res="$src/$rel"
+  if [ "$end" = "/" ] || [ "$end" = ":" ]; then
+    res="$src$rel"
+  fi
+  $COPYER -- "$res"
+}}
+map yp yank-path
+map yd yank-dir
+map yn yank-name
+map ym yank-mnt
+
+map p
+map pp paste
+
+cmd paste-link %{{
+  flags="$1"
+  selection=~/".local/share/lf/files"
+  mode=$(head -n+1 "$selection")
+
+  tail -n+2 "$selection" | while read file; do
+    case "$mode" in
+      copy)
+        ln -sf $flags -t . -- "$file"
+        ;;
+      move)
+        ln -t . -- "$file"
+        ;;
+    esac
+  done
+
+  lf -remote "send clear"
+}}
+map pl paste-link -r
+map pL paste-link
