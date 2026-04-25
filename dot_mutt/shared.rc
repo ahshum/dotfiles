@@ -5,7 +5,8 @@ set imap_keepalive           = 300
 set mail_check               = 120
 set sidebar_visible          = yes
 set sidebar_width            = 25
-set mailcap_path             = ~/.mutt/mailcap
+set mailcap_path             = "~/.mutt/mailcap"
+set attach_save_dir          = "~/Downloads"
 set mark_old                 = no
 
 set mbox_type    = maildir
@@ -13,9 +14,14 @@ set spoolfile    = "+INBOX"
 set record       = "+Sent"
 set postponed    = "+Drafts"
 set trash        = "+Trash"
-set date_format  = "%Y-%m-%d %T"
-set index_format = "%2C %Z [%d] %-30.30F (%-4.4c) %s"
+set date_format  = "%F %T %z"
+set index_format = "%2C %Z [%D] %-30.30F (%-4.4c) %s"
 mailboxes        +INBOX
+
+auto_view         text/html
+alternative_order text/plain text/html
+
+unset markers
 
 bind index,pager                 K          sidebar-prev
 bind index,pager                 J          sidebar-next

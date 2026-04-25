@@ -6,3 +6,5 @@
 	allow = always
 [push]
 	default = upstream
+[status]
+	showUntrackedFiles = no
